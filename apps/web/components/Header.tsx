@@ -1,18 +1,17 @@
 "use client";
 
+import { HomeIcon } from "lucide-react";
+import Link from "next/link";
+
 interface HeaderProps {
   constituency?: string;
 }
 
 const CONSTITUENCY_NAMES: Record<string, { en: string; ta: string }> = {
-  AC210: { en: "Vilathikulam", ta: "விளாத்திகுளம்" },
-  AC211: { en: "Ottapidaram (SC)", ta: "ஓட்டப்பிடாரம் (தனி)" },
-  AC212: { en: "Kovilpatti", ta: "கோவில்பட்டி" },
-  AC224: { en: "Sattankulam", ta: "சாத்தான்குளம்" },
-  AC225: { en: "Tiruchendur", ta: "திருச்செந்தூர்" },
-  AC226: { en: "Srivaikuntam", ta: "ஸ்ரீவைகுண்டம்" },
-  AC227: { en: "Thoothukudi", ta: "தூத்துக்குடி" },
   AC173: { en: "Nannilam", ta: "நந்நிலம்" },
+  AC177: { en: "Tiruthuraipoondi", ta: "திருத்துறைப்பூண்டி" },
+  AC174: { en: "Tiruvarur", ta: "திருவாரூர்" },
+  AC178: { en: "Mannargudi", ta: "மன்னார்குடி" },
 };
 
 export default function Header({ constituency }: HeaderProps) {
@@ -30,7 +29,16 @@ export default function Header({ constituency }: HeaderProps) {
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-10 shadow-sm">
       <div className="container mx-auto px-4 py-3 lg:py-4">
-        <div className="text-center">
+        <div className="text-center flex flex-col lg:flex-row gap-3 lg:gap-0 justify-between items-center">
+          <div>
+            <Link
+              href="/"
+              className="flex items-center gap-2 text-blue-900 text-sm lg:text-lg font-semibold"
+            >
+              <HomeIcon className="h-4 w-4" />
+              Home
+            </Link>
+          </div>
           <h1 className="text-base lg:text-xl font-bold text-blue-900 leading-tight">
             Special Intensive Revision
           </h1>

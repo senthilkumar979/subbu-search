@@ -8,6 +8,9 @@ import AC224 from '@/lib/models/AC224';
 import AC225 from '@/lib/models/AC225';
 import AC226 from '@/lib/models/AC226';
 import AC227 from '@/lib/models/AC227';
+import AC173 from '@/lib/models/AC173';
+import AC178 from '@/lib/models/AC178';
+import AC174 from '@/lib/models/AC174';
 import { Model } from 'mongoose';
 import { withApiProtection } from '@/lib/api-middleware';
 
@@ -21,6 +24,9 @@ const MODEL_MAP: Record<string, Model<any>> = {
   'AC225': AC225,
   'AC226': AC226,
   'AC227': AC227,
+  'AC173': AC173,
+  'AC178': AC178,
+  'AC174': AC174,
   'Voter': Voter, // Default/legacy
 };
 

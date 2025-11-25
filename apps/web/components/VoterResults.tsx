@@ -1,10 +1,11 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { Button } from '@workspace/ui/components/button';
-import { Card, CardContent } from '@workspace/ui/components/card';
-import NeighborVotersModal from './NeighborVotersModal';
+import { Button } from "@workspace/ui/components/button";
+import { Card, CardContent } from "@workspace/ui/components/card";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
+import { pollingStations } from "../lib/pollingStations";
+import NeighborVotersModal from "./NeighborVotersModal";
 
 interface Voter {
   _id: string;
@@ -24,18 +25,18 @@ interface Voter {
 
 // Helper function to get full relation type name
 const getRelationTypeName = (rlnType?: string): string => {
-  if (!rlnType) return '';
+  if (!rlnType) return "";
 
   const relationMap: Record<string, string> = {
-    'H': 'Husband',
-    'F': 'Father',
-    'M': 'Mother',
-    'W': 'Wife',
-    'S': 'Son',
-    'D': 'Daughter',
-    'B': 'Brother',
-    'SI': 'Sister',
-    'O': 'Others',
+    H: "Husband",
+    F: "Father",
+    M: "Mother",
+    W: "Wife",
+    S: "Son",
+    D: "Daughter",
+    B: "Brother",
+    SI: "Sister",
+    O: "Others",
   };
 
   return relationMap[rlnType.toUpperCase()] || rlnType;
@@ -43,12 +44,12 @@ const getRelationTypeName = (rlnType?: string): string => {
 
 // Helper function to get full gender name
 const getGenderName = (sex?: string): string => {
-  if (!sex) return '-';
+  if (!sex) return "-";
 
   const genderMap: Record<string, string> = {
-    'M': 'Male',
-    'F': 'Female',
-    'O': 'Other',
+    M: "Male",
+    F: "Female",
+    O: "Other",
   };
 
   return genderMap[sex.toUpperCase()] || sex;
@@ -66,7 +67,12 @@ interface VoterResultsProps {
   constituency: string;
 }
 
-export default function VoterResults({ voters, pagination, onPageChange, constituency }: VoterResultsProps) {
+export default function VoterResults({
+  voters,
+  pagination,
+  onPageChange,
+  constituency,
+}: VoterResultsProps) {
   const [selectedVoter, setSelectedVoter] = useState<Voter | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -88,12 +94,21 @@ export default function VoterResults({ voters, pagination, onPageChange, constit
     );
   }
 
+  const getPollingStationName = (partNo: number, acNo: number) => {
+    const pollingStation = pollingStations.find(
+      (pollingStation) =>
+        pollingStation.POLL_NO === partNo.toString() &&
+        pollingStation.AC_NO === acNo.toString()
+    );
+    return pollingStation?.POLL_NAME_TA || "-";
+  };
+
   return (
     <div className="space-y-4">
       <div className="flex justify-between items-center">
         <p className="text-sm text-gray-600">
-          Showing {((pagination.page - 1) * pagination.limit) + 1} to{' '}
-          {Math.min(pagination.page * pagination.limit, pagination.total)} of{' '}
+          Showing {(pagination.page - 1) * pagination.limit + 1} to{" "}
+          {Math.min(pagination.page * pagination.limit, pagination.total)} of{" "}
           {pagination.total.toLocaleString()} results
         </p>
       </div>
@@ -110,10 +125,12 @@ export default function VoterResults({ voters, pagination, onPageChange, constit
               <div className="space-y-2">
                 <div className="flex-1">
                   <div className="font-semibold text-base text-gray-900">
-                    {voter.fmNameV2 || '-'}
+                    {voter.fmNameV2 || "-"}
                   </div>
                   <div className="text-sm text-gray-600">
-                    {voter.rlnFmNmV2 ? `${voter.rlnFmNmV2} (${getRelationTypeName(voter.rlnType)})` : '-'}
+                    {voter.rlnFmNmV2
+                      ? `${voter.rlnFmNmV2} (${getRelationTypeName(voter.rlnType)})`
+                      : "-"}
                   </div>
                 </div>
 
@@ -128,11 +145,13 @@ export default function VoterResults({ voters, pagination, onPageChange, constit
                   </div>
                   <div>
                     <span className="text-gray-500">Age:</span>
-                    <span className="ml-1 font-medium">{voter.age || '-'}</span>
+                    <span className="ml-1 font-medium">{voter.age || "-"}</span>
                   </div>
                   <div>
                     <span className="text-gray-500">Gender:</span>
-                    <span className="ml-1 font-medium">{getGenderName(voter.sex)}</span>
+                    <span className="ml-1 font-medium">
+                      {getGenderName(voter.sex)}
+                    </span>
                   </div>
                   {voter.psName && (
                     <div className="col-span-2">
@@ -182,19 +201,29 @@ export default function VoterResults({ voters, pagination, onPageChange, constit
                 className="hover:bg-gray-50 cursor-pointer"
                 onClick={() => handleVoterClick(voter)}
               >
-                <td className="border border-gray-300 px-4 py-2 text-sm">{voter.partNo}</td>
+                <td className="border border-gray-300 px-4 py-2 text-sm">
+                  {voter.partNo}
+                </td>
                 <td className="border border-gray-300 px-4 py-2 text-sm">
                   {voter.slNoInPart}
                 </td>
                 <td className="border border-gray-300 px-4 py-2 text-sm font-medium">
-                  {voter.fmNameV2 || '-'}
+                  {voter.fmNameV2 || "-"}
                 </td>
                 <td className="border border-gray-300 px-4 py-2 text-sm">
-                  {voter.rlnFmNmV2 ? `${voter.rlnFmNmV2} (${getRelationTypeName(voter.rlnType)})` : '-'}
+                  {voter.rlnFmNmV2
+                    ? `${voter.rlnFmNmV2} (${getRelationTypeName(voter.rlnType)})`
+                    : "-"}
                 </td>
-                <td className="border border-gray-300 px-4 py-2 text-sm">{voter.age || '-'}</td>
-                <td className="border border-gray-300 px-4 py-2 text-sm">{getGenderName(voter.sex)}</td>
-                <td className="border border-gray-300 px-4 py-2 text-sm">{voter.psName || '-'}</td>
+                <td className="border border-gray-300 px-4 py-2 text-sm">
+                  {voter.age || "-"}
+                </td>
+                <td className="border border-gray-300 px-4 py-2 text-sm">
+                  {getGenderName(voter.sex)}
+                </td>
+                <td className="border border-gray-300 px-4 py-2 text-sm">
+                  {getPollingStationName(voter.partNo, voter.acNo) || "-"}
+                </td>
               </tr>
             ))}
           </tbody>
@@ -239,4 +268,3 @@ export default function VoterResults({ voters, pagination, onPageChange, constit
     </div>
   );
 }
-

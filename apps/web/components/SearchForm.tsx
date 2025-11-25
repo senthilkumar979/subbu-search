@@ -1,11 +1,9 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Button } from '@workspace/ui/components/button';
-import { Search, Loader2, Filter, X } from 'lucide-react';
-import PollingStationSelect from './PollingStationSelect';
-import CurrentPollingStationSelect from './CurrentPollingStationSelect';
-import TransliterateInput from './TransliterateInput';
+import { Button } from "@workspace/ui/components/button";
+import { Loader2, Search, X } from "lucide-react";
+import { useState } from "react";
+import TransliterateInput from "./TransliterateInput";
 
 interface SearchFormProps {
   onSearch: (params: SearchParams) => void;
@@ -22,12 +20,17 @@ export interface SearchParams {
   sex?: string;
 }
 
-export default function SearchForm({ onSearch, onReset, isLoading, constituency }: SearchFormProps) {
-  const [name, setName] = useState('');
-  const [relationName, setRelationName] = useState('');
-  const [partNo, setPartNo] = useState('');
-  const [currentPartNo, setCurrentPartNo] = useState('');
-  const [sex, setSex] = useState('');
+export default function SearchForm({
+  onSearch,
+  onReset,
+  isLoading,
+  constituency,
+}: SearchFormProps) {
+  const [name, setName] = useState("");
+  const [relationName, setRelationName] = useState("");
+  const [partNo, setPartNo] = useState("");
+  const [currentPartNo, setCurrentPartNo] = useState("");
+  const [sex, setSex] = useState("");
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -48,11 +51,11 @@ export default function SearchForm({ onSearch, onReset, isLoading, constituency 
   };
 
   const handleReset = () => {
-    setName('');
-    setRelationName('');
-    setPartNo('');
-    setCurrentPartNo('');
-    setSex('');
+    setName("");
+    setRelationName("");
+    setPartNo("");
+    setCurrentPartNo("");
+    setSex("");
     setShowAdvancedFilters(false);
 
     // Call parent reset handler to clear results
@@ -66,7 +69,7 @@ export default function SearchForm({ onSearch, onReset, isLoading, constituency 
   return (
     <form onSubmit={handleSubmit} className="space-y-3">
       {/* Mobile: Two column layout */}
-      <div className="grid grid-cols-1 gap-3 lg:hidden">
+      <div className="grid grid-cols-1 gap-3 lg:hidden place-items-center text-center">
         <TransliterateInput
           id="name"
           value={name}
@@ -86,7 +89,10 @@ export default function SearchForm({ onSearch, onReset, isLoading, constituency 
         />
 
         <div>
-          <label htmlFor="sex-mobile-primary" className="block text-xs font-medium mb-1.5">
+          <label
+            htmlFor="sex-mobile-primary"
+            className="block text-xs font-medium mb-1.5"
+          >
             Gender / பாலினம்
           </label>
           <select
@@ -100,9 +106,10 @@ export default function SearchForm({ onSearch, onReset, isLoading, constituency 
             <option value="F">Female</option>
             <option value="O">Other</option>
           </select>
+          <div className="h-5 mt-1"></div>
         </div>
 
-        <div>
+        {/* <div>
           <label htmlFor="current-part-no-mobile-main" className="block text-xs font-medium mb-1.5">
             Current Polling Station (2025) / வாக்குச்சாவடி எண் 2025
           </label>
@@ -113,11 +120,11 @@ export default function SearchForm({ onSearch, onReset, isLoading, constituency 
             constituency={constituency}
             disabled={isLoading}
           />
-        </div>
+        </div> */}
       </div>
 
       {/* Desktop: First row - Name, Relation Name, Gender */}
-      <div className="hidden lg:flex lg:gap-3 lg:items-start">
+      <div className="hidden lg:flex lg:gap-3 lg:items-center">
         <div className="flex-1">
           <TransliterateInput
             id="name-desktop"
@@ -141,7 +148,10 @@ export default function SearchForm({ onSearch, onReset, isLoading, constituency 
         </div>
 
         <div className="flex-1">
-          <label htmlFor="sex-desktop" className="block text-xs font-medium mb-1.5">
+          <label
+            htmlFor="sex-desktop"
+            className="block text-xs font-medium mb-1.5"
+          >
             Gender / பாலினம்
           </label>
           <select
@@ -155,13 +165,48 @@ export default function SearchForm({ onSearch, onReset, isLoading, constituency 
             <option value="F">Female</option>
             <option value="O">Other</option>
           </select>
+          <div className="h-5 mt-1"></div>
+        </div>
+        <div className="flex-1 flex items-center">
+          <div className="flex-1 gap-2 flex items-middle justify-center text-center">
+            <Button
+              type="submit"
+              disabled={isLoading || !hasSearchCriteria}
+              size="sm"
+              className="whitespace-nowrap"
+            >
+              {isLoading ? (
+                <>
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  <span className="ml-1.5">Searching...</span>
+                </>
+              ) : (
+                <>
+                  <Search className="h-4 w-4" />
+                  <span className="ml-1.5">Search</span>
+                </>
+              )}
+            </Button>
+
+            <Button
+              type="button"
+              variant="outline"
+              onClick={handleReset}
+              size="sm"
+            >
+              <X className="h-4 w-4" />
+            </Button>
+          </div>
         </div>
       </div>
 
       {/* Desktop: Second row - Current Polling Station and Action Buttons */}
-      <div className="hidden lg:flex lg:gap-3 lg:items-start">
-        <div className="flex-1">
-          <label htmlFor="current-part-no-desktop-main" className="block text-xs font-medium mb-1.5">
+      <div className="hidden lg:flex lg:gap-3 lg:items-center">
+        {/* <div className="flex-1">
+          <label
+            htmlFor="current-part-no-desktop-main"
+            className="block text-xs font-medium mb-1.5"
+          >
             Current Polling Station (2025) / வாக்குச்சாவடி எண் 2025
           </label>
           <CurrentPollingStationSelect
@@ -171,10 +216,10 @@ export default function SearchForm({ onSearch, onReset, isLoading, constituency 
             constituency={constituency}
             disabled={isLoading}
           />
-        </div>
+        </div> */}
 
         <div className="flex-[2] flex gap-2 pt-6">
-          <Button
+          {/* <Button
             type="button"
             variant="outline"
             size="sm"
@@ -192,32 +237,19 @@ export default function SearchForm({ onSearch, onReset, isLoading, constituency 
                 <span className="ml-1.5">More</span>
               </>
             )}
-          </Button>
-
-          <Button type="submit" disabled={isLoading || !hasSearchCriteria} size="sm" className="whitespace-nowrap">
-            {isLoading ? (
-              <>
-                <Loader2 className="h-4 w-4 animate-spin" />
-                <span className="ml-1.5">Searching...</span>
-              </>
-            ) : (
-              <>
-                <Search className="h-4 w-4" />
-                <span className="ml-1.5">Search</span>
-              </>
-            )}
-          </Button>
-
-          <Button type="button" variant="outline" onClick={handleReset} size="sm">
-            <X className="h-4 w-4" />
-          </Button>
+          </Button> */}
         </div>
       </div>
 
       {/* Desktop: Advanced Filters */}
-      <div className={`hidden lg:grid lg:grid-cols-1 lg:gap-3 ${showAdvancedFilters ? 'lg:grid' : 'lg:hidden'}`}>
+      {/* <div
+        className={`hidden lg:grid lg:grid-cols-1 lg:gap-3 ${showAdvancedFilters ? "lg:grid" : "lg:hidden"}`}
+      >
         <div>
-          <label htmlFor="part-no-desktop" className="block text-xs font-medium mb-1.5">
+          <label
+            htmlFor="part-no-desktop"
+            className="block text-xs font-medium mb-1.5"
+          >
             Polling Station (2002) / வாக்குச் சாவடி (2002)
           </label>
           <PollingStationSelect
@@ -228,30 +260,15 @@ export default function SearchForm({ onSearch, onReset, isLoading, constituency 
             disabled={isLoading}
           />
         </div>
-      </div>
+      </div> */}
 
       {/* Mobile: Action Buttons */}
-      <div className="flex gap-2 pt-1 lg:hidden">
+      <div className="flex gap-2 pt-3 lg:hidden justify-center items-center text-center">
         <Button
-          type="button"
-          variant="outline"
+          type="submit"
+          disabled={isLoading || !hasSearchCriteria}
           size="sm"
-          onClick={() => setShowAdvancedFilters(!showAdvancedFilters)}
         >
-          {showAdvancedFilters ? (
-            <>
-              <X className="h-4 w-4" />
-              <span className="ml-1.5">Hide</span>
-            </>
-          ) : (
-            <>
-              <Filter className="h-4 w-4" />
-              <span className="ml-1.5">More</span>
-            </>
-          )}
-        </Button>
-
-        <Button type="submit" disabled={isLoading || !hasSearchCriteria} size="sm">
           {isLoading ? (
             <>
               <Loader2 className="h-4 w-4 animate-spin" />
@@ -271,9 +288,14 @@ export default function SearchForm({ onSearch, onReset, isLoading, constituency 
       </div>
 
       {/* Mobile: Advanced Filters */}
-      <div className={`space-y-3 lg:hidden ${showAdvancedFilters ? 'block' : 'hidden'}`}>
+      {/* <div
+        className={`space-y-3 lg:hidden ${showAdvancedFilters ? "block" : "hidden"}`}
+      >
         <div>
-          <label htmlFor="part-no-mobile" className="block text-xs font-medium mb-1.5">
+          <label
+            htmlFor="part-no-mobile"
+            className="block text-xs font-medium mb-1.5"
+          >
             Polling Station (2002) / வாக்குச் சாவடி (2002)
           </label>
           <PollingStationSelect
@@ -284,8 +306,7 @@ export default function SearchForm({ onSearch, onReset, isLoading, constituency 
             disabled={isLoading}
           />
         </div>
-      </div>
+      </div> */}
     </form>
   );
 }
-
