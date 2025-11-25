@@ -8,13 +8,14 @@ import {
   Hash,
   Home,
   IdCard,
-  User,
   UserCircle2,
   Users,
 } from "lucide-react";
 import { useState } from "react";
 import { pollingStations } from "../lib/pollingStations";
+import Man from "./Man";
 import NeighborVotersModal from "./NeighborVotersModal";
+import Woman from "./Woman";
 
 interface Voter {
   _id: string;
@@ -176,11 +177,9 @@ export default function VoterResults({
             tabIndex={0}
           >
             <CardContent className="p-4">
-              <div className="absolute right-0 top-0 m-1 rounded-l-full bg-blue-50 px-2 py-[1px] text-xs text-blue-600 shadow-md font-semibold tracking-wide">
-                #{voter.slNoInPart}
-              </div>
               <div className="flex items-center gap-4">
-                <User className="h-8 w-8 text-blue-600 shrink-0" />
+                {voter.sex === "M" && <Man isLarge />}
+                {voter.sex === "F" && <Woman isLarge />}
                 <div className="flex flex-col">
                   <span className="font-bold text-gray-900 text-base leading-tight">
                     {voter.fmNameV2 ? (
@@ -206,14 +205,25 @@ export default function VoterResults({
                   </span>
                 </div>
               </div>
-              <div className="grid grid-cols-3 gap-y-0.5 gap-x-2 mt-3 text-[13px]">
+              <div className="grid grid-cols-2 gap-y-0.5 gap-x-2 mt-3 text-[13px]">
                 <div className="flex items-center gap-1 text-gray-500">
                   <Hash className="h-3 w-3" />
                   <span>Part:</span>
-                  <span className="ml-1 text-gray-900 font-medium">
+                  <span className="ml-1 text-gray-900 font-medium bg-pink-50 px-2 py-[1px] text-xs text-pink-600 shadow-md font-semibold tracking-wide">
                     {voter.partNo}
                   </span>
                 </div>
+                <div className="flex items-center gap-1 text-gray-500">
+                  <Users className="h-3 w-3" />
+                  <span>Serial No:</span>
+                  <div className="m-1 rounded-l-full bg-blue-50 px-2 py-[1px] text-xs text-blue-600 shadow-md font-semibold tracking-wide">
+                    {voter.slNoInPart ?? (
+                      <span className="italic text-gray-400">--</span>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-y-0.5 gap-x-2 mt-3 text-[13px]">
                 <div className="flex items-center gap-1 text-gray-500">
                   <Users className="h-3 w-3" />
                   <span>Age:</span>
@@ -226,7 +236,9 @@ export default function VoterResults({
                 <div className="flex items-center gap-1 text-gray-500">
                   <IdCard className="h-3 w-3" />
                   <span>Gender:</span>
-                  <span className="ml-1 text-gray-900 font-medium">
+                  <span className="ml-1 text-gray-900 font-medium flex items-center gap-1">
+                    {voter.sex === "M" && <Man />}
+                    {voter.sex === "F" && <Woman />}
                     {getGenderName(voter.sex)}
                   </span>
                 </div>
@@ -313,7 +325,7 @@ export default function VoterResults({
                 </td>
                 <td className="border-b border-gray-100 px-4 py-2 text-sm">
                   <span
-                    className={`inline-block rounded px-2 py-0.5 text-xs font-medium ${
+                    className={`rounded px-2 py-0.5 text-xs flex items-center gap-1 font-medium ${
                       voter.sex === "M"
                         ? "bg-blue-100 text-blue-800"
                         : voter.sex === "F"
@@ -321,6 +333,8 @@ export default function VoterResults({
                           : "bg-gray-100 text-gray-600"
                     }`}
                   >
+                    {voter.sex === "M" && <Man />}
+                    {voter.sex === "F" && <Woman />}
                     {getGenderName(voter.sex)}
                   </span>
                 </td>

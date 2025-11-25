@@ -1,9 +1,21 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { X, Loader2, User, Hash, Home, Users, IdCard } from "lucide-react";
-import { Button } from "@workspace/ui/components/button";
 import { signedFetch } from "@/lib/client-hmac";
+import { Button } from "@workspace/ui/components/button";
+import {
+  Fingerprint,
+  Hash,
+  Home,
+  IdCard,
+  Loader2,
+  User,
+  Users,
+  X,
+} from "lucide-react";
+import { useEffect, useState } from "react";
+import { pollingStations } from "../lib/pollingStations";
+import Man from "./Man";
+import Woman from "./Woman";
 
 interface Voter {
   _id: string;
@@ -56,14 +68,13 @@ const getGenderName = (sex?: string): string => {
 };
 
 // Table/row should look like VoterResults
-function getPollingStationName(
-  partNo?: number,
-  acNo?: number,
-  psName?: string
-) {
-  // For modal, fallback to psName || "PS X (AC Y)"
-  if (psName) return psName;
-  return partNo ? `PS ${partNo}${acNo ? ` (AC ${acNo})` : ""}` : "-";
+function getPollingStationName(partNo: number, acNo: number) {
+  const pollingStation = pollingStations.find(
+    (pollingStation) =>
+      pollingStation.POLL_NO === partNo.toString() &&
+      pollingStation.AC_NO === acNo.toString()
+  );
+  return pollingStation?.POLL_NAME_TA || "-";
 }
 
 export default function NeighborVotersModal({
@@ -127,20 +138,28 @@ export default function NeighborVotersModal({
                 Neighboring Voters
               </h2>
             </div>
-            <div className="flex flex-wrap gap-4 mt-1 text-[13px] text-gray-700">
+            <div className="flex flex-wrap gap-4 mt-2 text-[13px] text-gray-700">
               <span>
                 <Hash className="inline h-3 w-3 mb-0.5 text-blue-400" />
                 <span className="ml-0.5">Serial No:</span>{" "}
-                <span className="font-semibold text-blue-800">
+                <span className="font-semibold text-blue-800 bg-blue-50 px-2 py-[1px] text-xs text-blue-600 shadow-md font-semibold tracking-wide rounded-full">
                   {selectedVoter.slNoInPart}
                 </span>
               </span>
               <span>
-                <Home className="inline h-3 w-3 mb-0.5 text-green-400" />
+                <IdCard className="inline h-3 w-3 mb-0.5 text-green-400" />
                 <span className="ml-0.5">Part No:</span>{" "}
-                <span className="font-semibold text-green-600">
+                <span className="font-semibold text-green-600 bg-green-50 px-2 py-[1px] text-xs text-green-600 shadow-md font-semibold tracking-wide rounded-full">
                   {selectedVoter.partNo}
                 </span>
+              </span>
+            </div>
+            <div className="flex items-center gap-2 mt-2">
+              <span className="font-semibold text-[14px]">
+                {getPollingStationName(
+                  selectedVoter.partNo,
+                  selectedVoter.acNo
+                )}
               </span>
             </div>
           </div>
@@ -184,7 +203,7 @@ export default function NeighborVotersModal({
                     <div
                       key={voter._id}
                       className={`
-                        rounded-lg border group relative transition 
+                        rounded-lg border group relative transition
                         py-3 px-4 bg-gradient-to-br from-blue-50/[.2] to-white
                         ${
                           isSelected
@@ -193,17 +212,20 @@ export default function NeighborVotersModal({
                         }
                       `}
                     >
-                      <div className="absolute right-0 top-0 m-1 px-2 py-0.5 text-xs bg-blue-100 text-blue-600 rounded-l-full shadow font-mono font-semibold tracking-tight">
-                        #{voter.slNoInPart}
-                        {isSelected && (
-                          <span className="ml-2 text-[11px] font-bold text-blue-700">
-                            (You)
-                          </span>
-                        )}
-                      </div>
+                      {isSelected && (
+                        <div className="absolute right-0 top-0 m-1 px-2 py-0.5 text-xs bg-red-100 text-red-600 rounded-full shadow font-mono font-semibold tracking-tight">
+                          <div className="flex items-center gap-1">
+                            <Fingerprint className="h-4 w-4" />
+                            <span className="text-[11px] font-bold text-red-700">
+                              You
+                            </span>
+                          </div>
+                        </div>
+                      )}
 
                       <div className="flex items-center gap-3">
-                        <User className="h-8 w-8 text-blue-700" />
+                        {voter.sex === "M" && <Man isLarge />}
+                        {voter.sex === "F" && <Woman isLarge />}
                         <div className="flex flex-col gap-0.5">
                           <span className="font-bold text-gray-900 text-base">
                             {voter.fmNameV2 || (
@@ -231,6 +253,20 @@ export default function NeighborVotersModal({
                       </div>
                       <div className="grid grid-cols-2 gap-2 text-[13px] mt-3">
                         <div className="flex items-center gap-1 text-gray-600 font-medium">
+                          <Hash className="h-4 w-4" />
+                          Part:
+                          <span className="ml-1 text-gray-900 bg-pink-50 px-2 py-[1px] text-xs text-pink-600 shadow-md font-semibold tracking-wide rounded-full">
+                            {voter.partNo}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-1 text-gray-600 font-medium">
+                          <Home className="h-4 w-4" />
+                          Serial No:
+                          <div className="m-1 px-2 py-0.5 text-xs bg-blue-100 text-blue-600 rounded-l-full shadow font-mono font-semibold tracking-tight">
+                            {voter.slNoInPart}
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-1 text-gray-600 font-medium">
                           <Users className="h-4 w-4" />
                           Age:
                           <span className="ml-1 text-gray-900">
@@ -242,28 +278,12 @@ export default function NeighborVotersModal({
                         <div className="flex items-center gap-1 text-gray-600 font-medium">
                           <IdCard className="h-4 w-4" />
                           Gender:
-                          <span className="ml-1 text-gray-900">
+                          <span className="ml-1 text-gray-900 flex items-center gap-1">
+                            {voter.sex === "M" && <Man />}
+                            {voter.sex === "F" && <Woman />}
                             {getGenderName(voter.sex)}
                           </span>
                         </div>
-                        <div className="flex items-center gap-1 text-gray-600 font-medium">
-                          <Hash className="h-4 w-4" />
-                          Part:
-                          <span className="ml-1 text-gray-900">
-                            {voter.partNo}
-                          </span>
-                        </div>
-                        {/* <div className="flex items-center gap-1 text-gray-600 font-medium">
-                          <Home className="h-4 w-4" />
-                          PS:
-                          <span className="ml-1 text-gray-900">
-                            {getPollingStationName(
-                              voter.partNo,
-                              voter.acNo,
-                              voter.psName
-                            )}
-                          </span>
-                        </div> */}
                       </div>
                     </div>
                   );
@@ -293,9 +313,6 @@ export default function NeighborVotersModal({
                       <th className="border-b border-blue-100 px-4 py-2 text-left">
                         Gender
                       </th>
-                      {/* <th className="border-b border-blue-100 px-4 py-2 text-left">
-                        PS Name
-                      </th> */}
                     </tr>
                   </thead>
                   <tbody>
@@ -353,7 +370,7 @@ export default function NeighborVotersModal({
                           </td>
                           <td className="border-b border-gray-100 px-4 py-2 text-sm">
                             <span
-                              className={`inline-block rounded px-2 py-0.5 text-xs font-medium ${
+                              className={`flex items-center gap-1 rounded px-2 py-0.5 text-xs font-medium ${
                                 voter.sex === "M"
                                   ? "bg-blue-100 text-blue-800"
                                   : voter.sex === "F"
@@ -361,14 +378,11 @@ export default function NeighborVotersModal({
                                     : "bg-gray-100 text-gray-600"
                               }`}
                             >
+                              {voter.sex === "M" && <Man />}
+                              {voter.sex === "F" && <Woman />}
                               {getGenderName(voter.sex)}
                             </span>
                           </td>
-                          {/* <td className="border-b border-gray-100 px-4 py-2 text-sm whitespace-normal max-w-xs">
-                            <span className="block text-blue-800 font-semibold">
-                              {getPollingStationName(voter.partNo, voter.acNo, voter.psName)}
-                            </span>
-                          </td> */}
                         </tr>
                       );
                     })}

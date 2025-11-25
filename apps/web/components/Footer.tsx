@@ -16,9 +16,9 @@ const CONSTITUENCY_NAMES: Record<string, { en: string; ta: string }> = {
 
 const CONTACTS = [
   {
-    href: "tel:+91 98947 29432",
+    href: "tel:+04366-1950",
     icon: <Phone className="h-4 w-4 text-pink-400 shrink-0" />,
-    label: "9894729432",
+    label: "043661950",
   },
   {
     href: "mailto:mentorbridgeindia@gmail.com",

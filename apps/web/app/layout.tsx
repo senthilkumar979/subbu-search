@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   category: "government",
   icons: {
     icon: "/eci-logo.png",
-    apple: "/apple-touch-icon.png",
+    apple: "/eci-logo.png",
   },
   openGraph: {
     title: "Thiruvarur - Special Intensive Revision 2002 Data",

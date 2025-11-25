@@ -199,7 +199,12 @@ function PageContent() {
           <div className="w-full max-w-4xl px-4 py-8">
             <div className="text-center mb-10 animate-fade-in">
               <div className="flex justify-center items-center mb-4">
-                <h1 className="text-2xl font-bold">DEO Thiruvarur</h1>
+                <Image
+                  src="/eci-logo.png"
+                  alt="ECI Logo"
+                  width={150}
+                  height={150}
+                />
               </div>
               <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">
                 <span className="bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-500 bg-clip-text text-transparent">
