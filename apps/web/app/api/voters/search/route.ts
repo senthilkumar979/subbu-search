@@ -1,6 +1,7 @@
 import { withApiProtection } from "@/lib/api-middleware";
 import AC173 from "@/lib/models/AC173";
 import AC174 from "@/lib/models/AC174";
+import AC177 from "@/lib/models/AC177";
 import AC178 from "@/lib/models/AC178";
 import AC210 from "@/lib/models/AC210";
 import AC211 from "@/lib/models/AC211";
@@ -14,7 +15,6 @@ import Voter from "@/lib/models/Voter";
 import connectDB from "@/lib/mongodb";
 import { Model } from "mongoose";
 import { NextRequest, NextResponse } from "next/server";
-import AC177 from "../../../../lib/models/AC177";
 
 // Model mapping based on tsc (Taluk/Constituency) parameter
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

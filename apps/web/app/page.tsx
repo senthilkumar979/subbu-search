@@ -202,7 +202,7 @@ function PageContent() {
                   AC 173
                 </div>
                 <div className="text-gray-700 font-medium">Nannilam</div>
-                <div className="text-gray-600 text-sm mt-1">நந்நிலம்</div>
+                <div className="text-gray-600 text-sm mt-1">நன்னிலம்</div>
               </button>
               <button
                 onClick={() => handleSelectConstituency("AC174")}

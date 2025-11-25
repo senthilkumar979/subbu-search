@@ -8,7 +8,7 @@ interface FooterProps {
 }
 
 const CONSTITUENCY_NAMES: Record<string, { en: string; ta: string }> = {
-  AC173: { en: "Nannilam", ta: "நந்நிலம்" },
+  AC173: { en: "Nannilam", ta: "நன்னிலம்" },
   AC177: { en: "Tiruthuraipoondi", ta: "திருத்துறைப்பூண்டி" },
   AC174: { en: "Tiruvarur", ta: "திருவாரூர்" },
   AC178: { en: "Mannargudi", ta: "மன்னார்குடி" },
