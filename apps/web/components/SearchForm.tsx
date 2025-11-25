@@ -200,68 +200,6 @@ export default function SearchForm({
         </div>
       </div>
 
-      {/* Desktop: Second row - Current Polling Station and Action Buttons */}
-      <div className="hidden lg:flex lg:gap-3 lg:items-center">
-        {/* <div className="flex-1">
-          <label
-            htmlFor="current-part-no-desktop-main"
-            className="block text-xs font-medium mb-1.5"
-          >
-            Current Polling Station (2025) / வாக்குச்சாவடி எண் 2025
-          </label>
-          <CurrentPollingStationSelect
-            id="current-part-no-desktop-main"
-            value={currentPartNo}
-            onChange={setCurrentPartNo}
-            constituency={constituency}
-            disabled={isLoading}
-          />
-        </div> */}
-
-        <div className="flex-[2] flex gap-2 pt-6">
-          {/* <Button
-            type="button"
-            variant="outline"
-            size="sm"
-            onClick={() => setShowAdvancedFilters(!showAdvancedFilters)}
-            className="whitespace-nowrap"
-          >
-            {showAdvancedFilters ? (
-              <>
-                <X className="h-4 w-4" />
-                <span className="ml-1.5">Hide</span>
-              </>
-            ) : (
-              <>
-                <Filter className="h-4 w-4" />
-                <span className="ml-1.5">More</span>
-              </>
-            )}
-          </Button> */}
-        </div>
-      </div>
-
-      {/* Desktop: Advanced Filters */}
-      {/* <div
-        className={`hidden lg:grid lg:grid-cols-1 lg:gap-3 ${showAdvancedFilters ? "lg:grid" : "lg:hidden"}`}
-      >
-        <div>
-          <label
-            htmlFor="part-no-desktop"
-            className="block text-xs font-medium mb-1.5"
-          >
-            Polling Station (2002) / வாக்குச் சாவடி (2002)
-          </label>
-          <PollingStationSelect
-            id="part-no-desktop"
-            value={partNo}
-            onChange={setPartNo}
-            constituency={constituency}
-            disabled={isLoading}
-          />
-        </div>
-      </div> */}
-
       {/* Mobile: Action Buttons */}
       <div className="flex gap-2 pt-3 lg:hidden justify-center items-center text-center">
         <Button

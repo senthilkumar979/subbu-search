@@ -1,4 +1,5 @@
 # Technical Documentation
+
 ## Thoothukudi District Electoral Roll Search Application
 
 **Version:** 1.0
@@ -9,7 +10,7 @@
 
 ## 📋 Document Overview
 
-This comprehensive technical documentation provides a complete reference for the Thoothukudi District Electoral Roll Search Application - a modern, secure web application built to enable public search and access to electoral roll data from 2002 across seven Assembly Constituencies in Thoothukudi District, Tamil Nadu.
+This comprehensive technical documentation provides a complete reference for the Thoothukudi District Electoral Roll Search Application - a modern, secure web application built to enable public search and access to Electoral Roll data from 2002 across seven Assembly Constituencies in Thoothukudi District, Tamil Nadu.
 
 ### What This Document Covers
 
@@ -24,13 +25,13 @@ This documentation provides detailed insights into every aspect of the applicati
 
 ### Who Should Read This Document
 
-| Audience | Relevant Sections |
-|----------|-------------------|
-| **Developers** | Sections 2-8, 11-12 (Architecture, Code Structure, Development Guidelines) |
-| **Security Auditors** | Sections 4, 9 (Security Implementation, Security Features) |
-| **DevOps Engineers** | Sections 10, 11 (Deployment, Performance Optimization) |
-| **Project Managers** | Sections 1, 2, 9 (Executive Summary, Architecture, Security) |
-| **New Team Members** | All sections for comprehensive onboarding |
+| Audience              | Relevant Sections                                                          |
+| --------------------- | -------------------------------------------------------------------------- |
+| **Developers**        | Sections 2-8, 11-12 (Architecture, Code Structure, Development Guidelines) |
+| **Security Auditors** | Sections 4, 9 (Security Implementation, Security Features)                 |
+| **DevOps Engineers**  | Sections 10, 11 (Deployment, Performance Optimization)                     |
+| **Project Managers**  | Sections 1, 2, 9 (Executive Summary, Architecture, Security)               |
+| **New Team Members**  | All sections for comprehensive onboarding                                  |
 
 ### Key Highlights
 
@@ -71,9 +72,10 @@ This documentation provides detailed insights into every aspect of the applicati
 
 ## 1. Executive Summary
 
-The Thoothukudi District Electoral Roll Search Application is a secure, high-performance web application designed to provide search and access to electoral roll data from 2002 for seven Assembly Constituencies (AC210, AC211, AC212, AC224, AC225, AC226, AC227) in Thoothukudi District, Tamil Nadu.
+The Thoothukudi District Electoral Roll Search Application is a secure, high-performance web application designed to provide search and access to Electoral Roll data from 2002 for seven Assembly Constituencies (AC210, AC211, AC212, AC224, AC225, AC226, AC227) in Thoothukudi District, Tamil Nadu.
 
 ### Key Features
+
 - **Multi-constituency search** across 7 Assembly Constituencies
 - **Bilingual support** (Tamil and English)
 - **Advanced search filters** (Name, Relation Name, Gender, Polling Station)
@@ -222,50 +224,50 @@ User → Vercel Edge → Next.js SSR → React Hydration → Client-side Navigat
 
 ### 3.1 Frontend Stack
 
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| **Next.js** | 15.4.5 | React framework with App Router, SSR, SSG, API routes |
-| **React** | 19.1.1 | UI library for building interactive components |
-| **TypeScript** | 5.9.2 | Type-safe JavaScript for better DX and fewer bugs |
-| **Tailwind CSS** | 4.1.11 | Utility-first CSS framework for rapid UI development |
-| **Lucide React** | 0.475.0 | Icon library for UI elements |
-| **next-themes** | 0.4.6 | Theme management (light/dark mode support) |
+| Technology       | Version | Purpose                                               |
+| ---------------- | ------- | ----------------------------------------------------- |
+| **Next.js**      | 15.4.5  | React framework with App Router, SSR, SSG, API routes |
+| **React**        | 19.1.1  | UI library for building interactive components        |
+| **TypeScript**   | 5.9.2   | Type-safe JavaScript for better DX and fewer bugs     |
+| **Tailwind CSS** | 4.1.11  | Utility-first CSS framework for rapid UI development  |
+| **Lucide React** | 0.475.0 | Icon library for UI elements                          |
+| **next-themes**  | 0.4.6   | Theme management (light/dark mode support)            |
 
 ### 3.2 Backend Stack
 
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| **Node.js** | ≥20 | JavaScript runtime environment |
-| **Next.js API Routes** | 15.4.5 | Serverless API endpoints |
-| **Mongoose** | 8.19.4 | MongoDB ODM for schema validation and queries |
-| **MongoDB** | 7.0.0 | NoSQL database driver |
-| **Node.js Crypto** | Built-in | HMAC-SHA256 signature generation |
+| Technology             | Version  | Purpose                                       |
+| ---------------------- | -------- | --------------------------------------------- |
+| **Node.js**            | ≥20      | JavaScript runtime environment                |
+| **Next.js API Routes** | 15.4.5   | Serverless API endpoints                      |
+| **Mongoose**           | 8.19.4   | MongoDB ODM for schema validation and queries |
+| **MongoDB**            | 7.0.0    | NoSQL database driver                         |
+| **Node.js Crypto**     | Built-in | HMAC-SHA256 signature generation              |
 
 ### 3.3 Development Tools
 
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| **Turbo** | 2.5.5 | Monorepo build system for faster builds |
-| **pnpm** | 10.4.1 | Fast, disk-efficient package manager |
-| **ESLint** | 9.32.0 | Code linting and quality enforcement |
-| **Prettier** | 3.6.2 | Code formatting |
-| **tsx** | 4.20.6 | TypeScript execution for scripts |
-| **dotenv** | 17.2.3 | Environment variable management |
-| **env-cmd** | 10.1.0 | Multi-environment configuration |
+| Technology   | Version | Purpose                                 |
+| ------------ | ------- | --------------------------------------- |
+| **Turbo**    | 2.5.5   | Monorepo build system for faster builds |
+| **pnpm**     | 10.4.1  | Fast, disk-efficient package manager    |
+| **ESLint**   | 9.32.0  | Code linting and quality enforcement    |
+| **Prettier** | 3.6.2   | Code formatting                         |
+| **tsx**      | 4.20.6  | TypeScript execution for scripts        |
+| **dotenv**   | 17.2.3  | Environment variable management         |
+| **env-cmd**  | 10.1.0  | Multi-environment configuration         |
 
 ### 3.4 Data Processing
 
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| **xlsx** | 0.18.5 | Excel file parsing for data import |
-| **@indic-transliteration/sanscript** | 1.3.3 | Tamil to English transliteration |
+| Technology                           | Version | Purpose                            |
+| ------------------------------------ | ------- | ---------------------------------- |
+| **xlsx**                             | 0.18.5  | Excel file parsing for data import |
+| **@indic-transliteration/sanscript** | 1.3.3   | Tamil to English transliteration   |
 
 ### 3.5 Analytics & Monitoring
 
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| **@vercel/analytics** | 1.5.0 | User analytics and insights |
-| **@vercel/speed-insights** | 1.2.0 | Core Web Vitals monitoring |
+| Technology                 | Version | Purpose                     |
+| -------------------------- | ------- | --------------------------- |
+| **@vercel/analytics**      | 1.5.0   | User analytics and insights |
+| **@vercel/speed-insights** | 1.2.0   | Core Web Vitals monitoring  |
 
 ---
 
@@ -419,12 +421,12 @@ NEXT_PUBLIC_API_KEY=tuticorin-gov-app-2025
 
 #### 4.1.4 Protected API Routes
 
-| Route | Method | Protection | Purpose |
-|-------|--------|------------|---------|
-| `/api/polling-stations` | GET | ✅ HMAC | Fetch polling stations by constituency |
-| `/api/voters/search` | GET | ✅ HMAC | Search voters with filters |
-| `/api/auth/sign` | POST | ❌ None | Generate HMAC signatures (rate-limited) |
-| `/api/example/protected` | GET/POST | ✅ HMAC | Example/demo route |
+| Route                    | Method   | Protection | Purpose                                 |
+| ------------------------ | -------- | ---------- | --------------------------------------- |
+| `/api/polling-stations`  | GET      | ✅ HMAC    | Fetch polling stations by constituency  |
+| `/api/voters/search`     | GET      | ✅ HMAC    | Search voters with filters              |
+| `/api/auth/sign`         | POST     | ❌ None    | Generate HMAC signatures (rate-limited) |
+| `/api/example/protected` | GET/POST | ✅ HMAC    | Example/demo route                      |
 
 ### 4.2 MongoDB Access Restrictions
 
@@ -436,6 +438,7 @@ NEXT_PUBLIC_API_KEY=tuticorin-gov-app-2025
    - Development requires VPN or local IP whitelisting
 
 2. **Connection Security**
+
    ```typescript
    // lib/mongodb.ts
    - TLS 1.2+ encryption enforced
@@ -445,9 +448,11 @@ NEXT_PUBLIC_API_KEY=tuticorin-gov-app-2025
    ```
 
 3. **Database Authentication**
+
    ```env
    MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/database
    ```
+
    - Username/password authentication required
    - Read-only user credentials (write access restricted)
    - Database-level access control
@@ -459,25 +464,29 @@ NEXT_PUBLIC_API_KEY=tuticorin-gov-app-2025
 ### 4.3 Vercel Security Features
 
 **1. Bot Management**
+
 - **DDoS Protection:** Automatic detection and mitigation
 - **Rate Limiting:** Edge-level request throttling
 - **Bot Detection:** Fingerprinting and challenge-response
 - **Firewall Rules:** Custom rules for blocking malicious traffic
 
 **2. Edge Network Security**
+
 - **SSL/TLS:** Automatic HTTPS with Let's Encrypt certificates
 - **HSTS:** HTTP Strict Transport Security enabled
 - **Content Security Policy:** CSP headers (can be customized)
 - **XSS Protection:** Built-in cross-site scripting prevention
 
 **3. Environment Variables**
+
 - Encrypted at rest
-- Never exposed in client-side bundles (except NEXT_PUBLIC_* vars)
+- Never exposed in client-side bundles (except NEXT*PUBLIC*\* vars)
 - Separate variables per environment (preview, production)
 
 ### 4.4 Application-Level Security
 
 **1. Input Validation**
+
 ```typescript
 // Example from /api/voters/search
 - Query parameter sanitization
@@ -487,6 +496,7 @@ NEXT_PUBLIC_API_KEY=tuticorin-gov-app-2025
 ```
 
 **2. Output Sanitization**
+
 ```typescript
 - MongoDB query result sanitization
 - No sensitive data in API responses
@@ -494,6 +504,7 @@ NEXT_PUBLIC_API_KEY=tuticorin-gov-app-2025
 ```
 
 **3. CORS Policy**
+
 ```typescript
 // Next.js automatically handles CORS
 - Same-origin by default
@@ -501,6 +512,7 @@ NEXT_PUBLIC_API_KEY=tuticorin-gov-app-2025
 ```
 
 **4. Session Security**
+
 - No sessions currently implemented
 - Stateless API design
 - Future: NextAuth.js integration for admin panel
@@ -514,6 +526,7 @@ NEXT_PUBLIC_API_KEY=tuticorin-gov-app-2025
 #### 5.1.1 Voter Collections (Per Constituency)
 
 **Collection Names:**
+
 - `ac210` (Vilathikulam)
 - `ac211` (Ottapidaram SC)
 - `ac212` (Kovilpatti)
@@ -527,20 +540,20 @@ NEXT_PUBLIC_API_KEY=tuticorin-gov-app-2025
 
 ```typescript
 interface VoterDocument {
-  acNo: number;           // Assembly Constituency Number (210-227)
-  partNo: number;         // Polling Station Part Number
-  slNoInPart: number;     // Serial Number in Part
-  houseNo?: string;       // House/Building Number
-  sectionNo?: string;     // Section Number
-  fmNameV2?: string;      // Voter name (Tamil script)
-  fmNameEn?: string;      // Voter name (English transliteration)
-  rlnFmNmV2?: string;     // Relation name (Tamil script)
-  rlnFmNmEn?: string;     // Relation name (English transliteration)
-  rlnType?: string;       // Relation type (H=Husband, F=Father, M=Mother)
-  age?: number;           // Age at time of enrollment
-  sex?: string;           // Gender (M=Male, F=Female, O=Other)
-  idCardNo?: string;      // Voter ID Card Number
-  psName?: string;        // Polling Station Name
+  acNo: number; // Assembly Constituency Number (210-227)
+  partNo: number; // Polling Station Part Number
+  slNoInPart: number; // Serial Number in Part
+  houseNo?: string; // House/Building Number
+  sectionNo?: string; // Section Number
+  fmNameV2?: string; // Voter name (Tamil script)
+  fmNameEn?: string; // Voter name (English transliteration)
+  rlnFmNmV2?: string; // Relation name (Tamil script)
+  rlnFmNmEn?: string; // Relation name (English transliteration)
+  rlnType?: string; // Relation type (H=Husband, F=Father, M=Mother)
+  age?: number; // Age at time of enrollment
+  sex?: string; // Gender (M=Male, F=Female, O=Other)
+  idCardNo?: string; // Voter ID Card Number
+  psName?: string; // Polling Station Name
 }
 ```
 
@@ -564,6 +577,7 @@ interface VoterDocument {
 ```
 
 **Document Count Estimation:**
+
 - ~50,000-100,000 documents per constituency
 - Total: ~500,000-700,000 voter records across all constituencies
 
@@ -575,12 +589,12 @@ interface VoterDocument {
 
 ```typescript
 interface LegacyPartDocument {
-  stateCode: string;      // State code (e.g., "S28" for Tamil Nadu)
-  districtNo: number;     // District number
-  acNo: number;           // Assembly Constituency Number
-  partNo: number;         // Part/Polling Station Number
-  partNameEn?: string;    // Polling station name (English)
-  partNameV1?: string;    // Polling station name (Tamil)
+  stateCode: string; // State code (e.g., "S28" for Tamil Nadu)
+  districtNo: number; // District number
+  acNo: number; // Assembly Constituency Number
+  partNo: number; // Part/Polling Station Number
+  partNameEn?: string; // Polling station name (English)
+  partNameV1?: string; // Polling station name (Tamil)
 }
 ```
 
@@ -592,6 +606,7 @@ interface LegacyPartDocument {
 ```
 
 **Usage:**
+
 - Lookup polling station names when displaying voter data
 - Populate dropdown for polling station filter
 - Join operation in voter search aggregation
@@ -642,40 +657,40 @@ const votersResult = await AC210.aggregate([
   {
     $match: {
       $and: [
-        { fmNameV2: { $regex: 'kumar', $options: 'i' } },
+        { fmNameV2: { $regex: "kumar", $options: "i" } },
         { partNo: 5 },
-        { sex: 'M' }
-      ]
-    }
+        { sex: "M" },
+      ],
+    },
   },
 
   // Step 2: Sort results
   { $sort: { acNo: 1, partNo: 1, slNoInPart: 1 } },
 
   // Step 3: Pagination
-  { $skip: 0 },   // (page - 1) * limit
+  { $skip: 0 }, // (page - 1) * limit
   { $limit: 200 },
 
   // Step 4: Join with LegacyPart for polling station name
   {
     $lookup: {
-      from: 'legacyparts',
-      let: { acNo: '$acNo', partNo: '$partNo' },
+      from: "legacyparts",
+      let: { acNo: "$acNo", partNo: "$partNo" },
       pipeline: [
         {
           $match: {
             $expr: {
               $and: [
-                { $eq: ['$acNo', '$$acNo'] },
-                { $eq: ['$partNo', '$$partNo'] }
-              ]
-            }
-          }
+                { $eq: ["$acNo", "$$acNo"] },
+                { $eq: ["$partNo", "$$partNo"] },
+              ],
+            },
+          },
         },
-        { $limit: 1 }
+        { $limit: 1 },
       ],
-      as: 'legacyPartInfo'
-    }
+      as: "legacyPartInfo",
+    },
   },
 
   // Step 5: Extract polling station name
@@ -683,19 +698,19 @@ const votersResult = await AC210.aggregate([
     $addFields: {
       psName: {
         $ifNull: [
-          { $arrayElemAt: ['$legacyPartInfo.partNameV1', 0] },
-          '$psName'
-        ]
-      }
-    }
+          { $arrayElemAt: ["$legacyPartInfo.partNameV1", 0] },
+          "$psName",
+        ],
+      },
+    },
   },
 
   // Step 6: Clean up temporary fields
   {
     $project: {
-      legacyPartInfo: 0
-    }
-  }
+      legacyPartInfo: 0,
+    },
+  },
 ]);
 ```
 
@@ -715,6 +730,7 @@ const pollingStations = await LegacyPart.find({ acNo: 210 })
 **Scripts Location:** `/apps/web/scripts/`
 
 **Import Scripts:**
+
 - `import-data.ts` - Generic voter data import
 - `import-ac212-ac224.ts` - AC212 and AC224 constituencies
 - `import-ac210-ac211.ts` - AC210 and AC211 constituencies
@@ -764,18 +780,19 @@ pnpm run import:ac227              # AC227
 
 ### 6.1 API Routes
 
-| Endpoint | Method | Auth | Description | Response Time |
-|----------|--------|------|-------------|---------------|
-| `/api/auth/sign` | POST | None | Generate HMAC signature | <50ms |
-| `/api/polling-stations` | GET | HMAC | Get polling stations by constituency | <200ms |
-| `/api/voters/search` | GET | HMAC | Search voters with filters | <500ms |
-| `/api/example/protected` | GET/POST | HMAC | Example protected route | <100ms |
+| Endpoint                 | Method   | Auth | Description                          | Response Time |
+| ------------------------ | -------- | ---- | ------------------------------------ | ------------- |
+| `/api/auth/sign`         | POST     | None | Generate HMAC signature              | <50ms         |
+| `/api/polling-stations`  | GET      | HMAC | Get polling stations by constituency | <200ms        |
+| `/api/voters/search`     | GET      | HMAC | Search voters with filters           | <500ms        |
+| `/api/example/protected` | GET/POST | HMAC | Example protected route              | <100ms        |
 
 ### 6.2 Request/Response Schemas
 
 #### 6.2.1 POST /api/auth/sign
 
 **Request:**
+
 ```json
 {
   "payload": "{\"timestamp\":1732093847234,\"nonce\":\"abc123\",\"apiKey\":\"tuticorin-gov-app-2025\",\"data\":null}"
@@ -783,6 +800,7 @@ pnpm run import:ac227              # AC227
 ```
 
 **Response (200 OK):**
+
 ```json
 {
   "signature": "ij8ysQl8sOAZBNg2O49lF/7sD3v0l6XM4r3smTPkwKI="
@@ -790,6 +808,7 @@ pnpm run import:ac227              # AC227
 ```
 
 **Response (400 Bad Request):**
+
 ```json
 {
   "error": "Timestamp expired or invalid"
@@ -797,6 +816,7 @@ pnpm run import:ac227              # AC227
 ```
 
 **Response (403 Forbidden):**
+
 ```json
 {
   "error": "Invalid API key"
@@ -806,6 +826,7 @@ pnpm run import:ac227              # AC227
 #### 6.2.2 GET /api/polling-stations
 
 **Request:**
+
 ```
 GET /api/polling-stations?tsc=AC210
 Headers:
@@ -816,6 +837,7 @@ Headers:
 ```
 
 **Response (200 OK):**
+
 ```json
 {
   "success": true,
@@ -837,6 +859,7 @@ Headers:
 ```
 
 **Response (403 Forbidden):**
+
 ```json
 {
   "error": "Forbidden",
@@ -847,6 +870,7 @@ Headers:
 #### 6.2.3 GET /api/voters/search
 
 **Request:**
+
 ```
 GET /api/voters/search?tsc=AC210&name=kumar&partNo=5&sex=M&page=1&limit=200
 Headers:
@@ -857,6 +881,7 @@ Headers:
 ```
 
 **Query Parameters:**
+
 - `tsc` (required): Constituency code (AC210, AC211, AC212, AC224, AC225, AC226, AC227)
 - `name` (optional): Voter name search (Tamil or English)
 - `relationName` (optional): Relation name search (father/husband/mother name)
@@ -866,6 +891,7 @@ Headers:
 - `limit` (optional, default: 200, max: 200): Records per page
 
 **Response (200 OK):**
+
 ```json
 {
   "success": true,
@@ -898,6 +924,7 @@ Headers:
 ```
 
 **Response (400 Bad Request):**
+
 ```json
 {
   "success": false,
@@ -906,6 +933,7 @@ Headers:
 ```
 
 **Response (403 Forbidden):**
+
 ```json
 {
   "error": "Forbidden",
@@ -926,12 +954,12 @@ Headers:
 
 **HTTP Status Codes:**
 
-| Code | Meaning | Usage |
-|------|---------|-------|
-| 200 | OK | Successful request |
-| 400 | Bad Request | Invalid parameters, malformed JSON |
-| 403 | Forbidden | HMAC signature invalid or missing |
-| 500 | Internal Server Error | Database error, unexpected exception |
+| Code | Meaning               | Usage                                |
+| ---- | --------------------- | ------------------------------------ |
+| 200  | OK                    | Successful request                   |
+| 400  | Bad Request           | Invalid parameters, malformed JSON   |
+| 403  | Forbidden             | HMAC signature invalid or missing    |
+| 500  | Internal Server Error | Database error, unexpected exception |
 
 ---
 
@@ -986,6 +1014,7 @@ apps/web/
 **Purpose:** Display application title, constituency info, and branding
 
 **Features:**
+
 - Sticky header on desktop
 - Constituency badge display
 - Tamil/English title
@@ -998,6 +1027,7 @@ apps/web/
 **Purpose:** Multi-field search interface
 
 **Features:**
+
 - Text input for voter name (Tamil/English support)
 - Text input for relation name
 - Gender dropdown (Male/Female/Other)
@@ -1008,6 +1038,7 @@ apps/web/
 - Reset functionality
 
 **State Management:**
+
 ```typescript
 interface SearchFormState {
   name: string;
@@ -1025,6 +1056,7 @@ interface SearchFormState {
 **Purpose:** Display search results in tabular format
 
 **Features:**
+
 - Responsive table (vertical on mobile, horizontal on desktop)
 - Pagination controls
 - Result count display
@@ -1032,6 +1064,7 @@ interface SearchFormState {
 - Loading skeleton (optional)
 
 **Props:**
+
 ```typescript
 interface VoterResultsProps {
   voters: Voter[];
@@ -1052,6 +1085,7 @@ interface VoterResultsProps {
 **Purpose:** Searchable dropdown for selecting polling stations
 
 **Features:**
+
 - Fetch polling stations dynamically based on constituency
 - Client-side search/filter
 - Click-outside to close
@@ -1059,6 +1093,7 @@ interface VoterResultsProps {
 - Tamil and English name display
 
 **State Management:**
+
 ```typescript
 interface PollingStationSelectState {
   pollingStations: PollingStation[];
@@ -1074,36 +1109,39 @@ interface PollingStationSelectState {
 **Approach:** React useState + props drilling (no global state library)
 
 **Rationale:**
+
 - Simple application with limited state sharing
 - No need for Redux/Zustand complexity
 - Server state managed via React Query patterns (fetch on demand)
 
 **State Locations:**
 
-| State | Location | Purpose |
-|-------|----------|---------|
-| `voters` | `page.tsx` | Current search results |
-| `pagination` | `page.tsx` | Pagination metadata |
-| `isLoading` | `page.tsx` | API request loading state |
-| `error` | `page.tsx` | Error message display |
+| State                 | Location   | Purpose                                 |
+| --------------------- | ---------- | --------------------------------------- |
+| `voters`              | `page.tsx` | Current search results                  |
+| `pagination`          | `page.tsx` | Pagination metadata                     |
+| `isLoading`           | `page.tsx` | API request loading state               |
+| `error`               | `page.tsx` | Error message display                   |
 | `currentSearchParams` | `page.tsx` | Last search parameters (for pagination) |
-| `selectedTsc` | `page.tsx` | Selected constituency |
+| `selectedTsc`         | `page.tsx` | Selected constituency                   |
 
 ### 7.4 Routing
 
 **Next.js App Router:**
+
 - File-system based routing
 - Server-side rendering by default
 - Client-side navigation with `<Link>` component
 
 **Routes:**
 
-| Route | Type | Description |
-|-------|------|-------------|
-| `/` | Page | Main search interface |
+| Route    | Type      | Description              |
+| -------- | --------- | ------------------------ |
+| `/`      | Page      | Main search interface    |
 | `/api/*` | API Route | Serverless API endpoints |
 
 **URL Parameters:**
+
 ```
 /?tsc=AC210                    # Pre-select constituency
 /?tsc=AC210&name=kumar         # Pre-select + pre-fill search (future feature)
@@ -1126,15 +1164,16 @@ interface PollingStationSelectState {
 
 **Responsive Design Breakpoints:**
 
-| Breakpoint | Width | Usage |
-|------------|-------|-------|
-| `sm:` | ≥640px | Small tablets |
-| `md:` | ≥768px | Tablets |
-| `lg:` | ≥1024px | Desktops |
-| `xl:` | ≥1280px | Large desktops |
-| `2xl:` | ≥1536px | Extra large screens |
+| Breakpoint | Width   | Usage               |
+| ---------- | ------- | ------------------- |
+| `sm:`      | ≥640px  | Small tablets       |
+| `md:`      | ≥768px  | Tablets             |
+| `lg:`      | ≥1024px | Desktops            |
+| `xl:`      | ≥1280px | Large desktops      |
+| `2xl:`     | ≥1536px | Extra large screens |
 
 **Theme Support:**
+
 - Light mode (default)
 - Dark mode disabled (per `providers.tsx`)
 - Can be enabled via `next-themes` package
@@ -1180,14 +1219,14 @@ tuticorin-gov-app/
 
 ### 8.2 File Naming Conventions
 
-| File Type | Convention | Example |
-|-----------|------------|---------|
-| React Components | PascalCase.tsx | `SearchForm.tsx` |
-| Utility Functions | camelCase.ts | `client-hmac.ts` |
-| API Routes | route.ts | `app/api/voters/search/route.ts` |
-| Models | PascalCase.ts | `AC210.ts` |
-| Hooks | use*.ts | `useDebounce.ts` (if created) |
-| Configuration | kebab-case.json | `tsconfig.json` |
+| File Type         | Convention      | Example                          |
+| ----------------- | --------------- | -------------------------------- |
+| React Components  | PascalCase.tsx  | `SearchForm.tsx`                 |
+| Utility Functions | camelCase.ts    | `client-hmac.ts`                 |
+| API Routes        | route.ts        | `app/api/voters/search/route.ts` |
+| Models            | PascalCase.ts   | `AC210.ts`                       |
+| Hooks             | use\*.ts        | `useDebounce.ts` (if created)    |
+| Configuration     | kebab-case.json | `tsconfig.json`                  |
 
 ### 8.3 Code Standards
 
@@ -1227,6 +1266,7 @@ function search(params) { ... }
 **Configuration:** `.eslintrc.js` + `@workspace/eslint-config`
 
 **Key Rules:**
+
 - No unused variables
 - No console.log in production (warnings only)
 - React Hooks rules
@@ -1259,21 +1299,21 @@ pnpm run lint:fix      # Auto-fix linting errors
 
 ```typescript
 // 1. External dependencies
-import { useState, useEffect } from 'react';
-import { NextRequest, NextResponse } from 'next/server';
+import { useState, useEffect } from "react";
+import { NextRequest, NextResponse } from "next/server";
 
 // 2. Internal utilities
-import { signedFetch } from '@/lib/client-hmac';
+import { signedFetch } from "@/lib/client-hmac";
 
 // 3. Components
-import Header from '@/components/Header';
-import SearchForm from '@/components/SearchForm';
+import Header from "@/components/Header";
+import SearchForm from "@/components/SearchForm";
 
 // 4. Types
-import type { Voter } from '@/lib/models/Voter';
+import type { Voter } from "@/lib/models/Voter";
 
 // 5. Styles (if any)
-import './styles.css';
+import "./styles.css";
 ```
 
 **Path Aliases:**
@@ -1296,39 +1336,39 @@ import './styles.css';
 
 ### 9.1 Security Layers Summary
 
-| Layer | Feature | Implementation | Status |
-|-------|---------|----------------|--------|
-| **Network** | DDoS Protection | Vercel Edge Network | ✅ Enabled |
-| | Bot Management | Vercel Security | ✅ Enabled |
-| | Firewall Rules | Vercel Custom Rules | ✅ Configurable |
-| **Transport** | HTTPS/TLS 1.2+ | Vercel SSL | ✅ Enforced |
-| | HSTS Headers | Next.js Headers | ✅ Enabled |
-| **API** | HMAC Signature Auth | Custom Middleware | ✅ Implemented |
-| | Timestamp Validation | 5-minute window | ✅ Implemented |
-| | Nonce-based Replay Protection | UUID generation | ✅ Implemented |
-| **Database** | IP Whitelisting | MongoDB Atlas | ✅ Vercel IPs only |
-| | TLS Encryption | MongoDB Driver | ✅ Enforced |
-| | Authentication | Username/Password | ✅ Enabled |
-| | RBAC | MongoDB Roles | ⚠️ Basic (read-only) |
-| **Application** | Input Validation | Regex + Type checking | ✅ Implemented |
-| | Output Sanitization | MongoDB projection | ✅ Implemented |
-| | Environment Variables | Vercel Secrets | ✅ Encrypted |
-| | Error Handling | No stack traces in prod | ✅ Implemented |
+| Layer           | Feature                       | Implementation          | Status               |
+| --------------- | ----------------------------- | ----------------------- | -------------------- |
+| **Network**     | DDoS Protection               | Vercel Edge Network     | ✅ Enabled           |
+|                 | Bot Management                | Vercel Security         | ✅ Enabled           |
+|                 | Firewall Rules                | Vercel Custom Rules     | ✅ Configurable      |
+| **Transport**   | HTTPS/TLS 1.2+                | Vercel SSL              | ✅ Enforced          |
+|                 | HSTS Headers                  | Next.js Headers         | ✅ Enabled           |
+| **API**         | HMAC Signature Auth           | Custom Middleware       | ✅ Implemented       |
+|                 | Timestamp Validation          | 5-minute window         | ✅ Implemented       |
+|                 | Nonce-based Replay Protection | UUID generation         | ✅ Implemented       |
+| **Database**    | IP Whitelisting               | MongoDB Atlas           | ✅ Vercel IPs only   |
+|                 | TLS Encryption                | MongoDB Driver          | ✅ Enforced          |
+|                 | Authentication                | Username/Password       | ✅ Enabled           |
+|                 | RBAC                          | MongoDB Roles           | ⚠️ Basic (read-only) |
+| **Application** | Input Validation              | Regex + Type checking   | ✅ Implemented       |
+|                 | Output Sanitization           | MongoDB projection      | ✅ Implemented       |
+|                 | Environment Variables         | Vercel Secrets          | ✅ Encrypted         |
+|                 | Error Handling                | No stack traces in prod | ✅ Implemented       |
 
 ### 9.2 Threat Model
 
-| Threat | Mitigation | Effectiveness |
-|--------|-----------|---------------|
-| **Unauthorized API Access** | HMAC signature authentication | 🟢 High |
-| **Replay Attacks** | Timestamp + nonce validation | 🟢 High |
-| **DDoS Attacks** | Vercel Edge + Rate limiting | 🟢 High |
-| **SQL Injection** | MongoDB (NoSQL) + parameterized queries | 🟢 High |
-| **XSS Attacks** | React automatic escaping + CSP | 🟢 High |
-| **CSRF Attacks** | SameSite cookies + CORS | 🟡 Medium |
-| **Data Breach** | IP whitelist + TLS encryption | 🟢 High |
-| **Brute Force** | Rate limiting (Vercel) | 🟡 Medium |
-| **Man-in-the-Middle** | HTTPS + HSTS | 🟢 High |
-| **Bot Scraping** | Vercel Bot Management | 🟢 High |
+| Threat                      | Mitigation                              | Effectiveness |
+| --------------------------- | --------------------------------------- | ------------- |
+| **Unauthorized API Access** | HMAC signature authentication           | 🟢 High       |
+| **Replay Attacks**          | Timestamp + nonce validation            | 🟢 High       |
+| **DDoS Attacks**            | Vercel Edge + Rate limiting             | 🟢 High       |
+| **SQL Injection**           | MongoDB (NoSQL) + parameterized queries | 🟢 High       |
+| **XSS Attacks**             | React automatic escaping + CSP          | 🟢 High       |
+| **CSRF Attacks**            | SameSite cookies + CORS                 | 🟡 Medium     |
+| **Data Breach**             | IP whitelist + TLS encryption           | 🟢 High       |
+| **Brute Force**             | Rate limiting (Vercel)                  | 🟡 Medium     |
+| **Man-in-the-Middle**       | HTTPS + HSTS                            | 🟢 High       |
+| **Bot Scraping**            | Vercel Bot Management                   | 🟢 High       |
 
 ### 9.3 Security Checklist
 
@@ -1380,11 +1420,11 @@ import './styles.css';
 
 **Environments:**
 
-| Environment | Branch | Domain | Purpose |
-|-------------|--------|--------|---------|
-| **Production** | `main` | Custom domain | Live application |
-| **Preview** | All other branches | `*.vercel.app` | PR previews |
-| **Development** | Local | `localhost:3000` | Local testing |
+| Environment     | Branch             | Domain           | Purpose          |
+| --------------- | ------------------ | ---------------- | ---------------- |
+| **Production**  | `main`             | Custom domain    | Live application |
+| **Preview**     | All other branches | `*.vercel.app`   | PR previews      |
+| **Development** | Local              | `localhost:3000` | Local testing    |
 
 **Environment Variables per Environment:**
 
@@ -1443,32 +1483,33 @@ pnpm run build:kanyakumari    # Uses .env.kanyakumari
 
 **Target Metrics:**
 
-| Metric | Target | Current (Estimated) |
-|--------|--------|---------------------|
-| **Lighthouse Score** | >90 | 95+ |
-| **First Contentful Paint (FCP)** | <1.5s | ~1.2s |
-| **Largest Contentful Paint (LCP)** | <2.5s | ~2.0s |
-| **Time to Interactive (TTI)** | <3.5s | ~3.0s |
-| **Cumulative Layout Shift (CLS)** | <0.1 | <0.05 |
-| **Total Blocking Time (TBT)** | <200ms | ~150ms |
+| Metric                             | Target | Current (Estimated) |
+| ---------------------------------- | ------ | ------------------- |
+| **Lighthouse Score**               | >90    | 95+                 |
+| **First Contentful Paint (FCP)**   | <1.5s  | ~1.2s               |
+| **Largest Contentful Paint (LCP)** | <2.5s  | ~2.0s               |
+| **Time to Interactive (TTI)**      | <3.5s  | ~3.0s               |
+| **Cumulative Layout Shift (CLS)**  | <0.1   | <0.05               |
+| **Total Blocking Time (TBT)**      | <200ms | ~150ms              |
 
 **Monitoring:** `@vercel/speed-insights`
 
 ### 10.4 Scaling Strategy
 
 **Current Capacity:**
+
 - Serverless functions: Auto-scale with Vercel
 - Database: MongoDB Atlas M10 cluster (recommended)
 - CDN: Vercel Edge Network (global)
 
 **Scaling Triggers:**
 
-| Metric | Threshold | Action |
-|--------|-----------|--------|
-| **API Response Time** | >1s avg | Optimize queries, add caching |
-| **Database CPU** | >80% | Upgrade MongoDB cluster |
-| **Edge Network Errors** | >1% | Review logs, add error handling |
-| **Concurrent Users** | >10,000 | Add Redis caching layer |
+| Metric                  | Threshold | Action                          |
+| ----------------------- | --------- | ------------------------------- |
+| **API Response Time**   | >1s avg   | Optimize queries, add caching   |
+| **Database CPU**        | >80%      | Upgrade MongoDB cluster         |
+| **Edge Network Errors** | >1%       | Review logs, add error handling |
+| **Concurrent Users**    | >10,000   | Add Redis caching layer         |
 
 ---
 
@@ -1548,21 +1589,21 @@ pnpm run build:kanyakumari    # Uses .env.kanyakumari
 
 **Current:**
 
-| Resource | Cache Location | Duration |
-|----------|----------------|----------|
-| Static Assets | Vercel CDN | 1 year |
-| HTML Pages | Vercel Edge | Revalidate on deploy |
-| API Responses | None | No caching |
-| Database Queries | None | No caching |
+| Resource         | Cache Location | Duration             |
+| ---------------- | -------------- | -------------------- |
+| Static Assets    | Vercel CDN     | 1 year               |
+| HTML Pages       | Vercel Edge    | Revalidate on deploy |
+| API Responses    | None           | No caching           |
+| Database Queries | None           | No caching           |
 
 **Recommended (Future):**
 
-| Resource | Cache Location | Duration |
-|----------|----------------|----------|
-| Polling Stations | Redis | 1 day |
-| Popular Searches | Redis | 1 hour |
-| Static Assets | Vercel CDN | 1 year |
-| HTML Pages | Vercel Edge + ISR | 5 minutes |
+| Resource         | Cache Location    | Duration  |
+| ---------------- | ----------------- | --------- |
+| Polling Stations | Redis             | 1 day     |
+| Popular Searches | Redis             | 1 hour    |
+| Static Assets    | Vercel CDN        | 1 year    |
+| HTML Pages       | Vercel Edge + ISR | 5 minutes |
 
 ---
 
@@ -1571,6 +1612,7 @@ pnpm run build:kanyakumari    # Uses .env.kanyakumari
 ### 12.1 Local Development Setup
 
 **Prerequisites:**
+
 - Node.js ≥20
 - pnpm ≥10
 - MongoDB Atlas account (or local MongoDB instance)
@@ -1632,6 +1674,7 @@ git commit -m "refactor(components): extract SearchFilter component"
 ```
 
 **Types:**
+
 - `feat`: New feature
 - `fix`: Bug fix
 - `docs`: Documentation changes
@@ -1716,18 +1759,18 @@ pnpm run test:coverage  # Generate coverage report
 
 ```typescript
 // lib/mongodb.ts
-mongoose.set('debug', process.env.NODE_ENV === 'development');
+mongoose.set("debug", process.env.NODE_ENV === "development");
 ```
 
 **API Debugging:**
 
 ```typescript
 // Add to any API route
-console.log('[API] Request:', {
+console.log("[API] Request:", {
   method: request.method,
   url: request.url,
   headers: Object.fromEntries(request.headers),
-  timestamp: new Date().toISOString()
+  timestamp: new Date().toISOString(),
 });
 ```
 
@@ -1750,24 +1793,24 @@ console.log('[API] Request:', {
 
 ## Appendix A: Glossary
 
-| Term | Definition |
-|------|------------|
-| **AC** | Assembly Constituency (electoral division) |
+| Term     | Definition                                                       |
+| -------- | ---------------------------------------------------------------- |
+| **AC**   | Assembly Constituency (Electoral Roll division)                  |
 | **HMAC** | Hash-based Message Authentication Code (cryptographic signature) |
-| **SSR** | Server-Side Rendering (Next.js rendering strategy) |
-| **SSG** | Static Site Generation (Next.js pre-rendering) |
-| **ISR** | Incremental Static Regeneration (Next.js hybrid rendering) |
-| **ODM** | Object-Document Mapper (Mongoose for MongoDB) |
-| **CDN** | Content Delivery Network (Vercel Edge Network) |
-| **TLS** | Transport Layer Security (encryption protocol) |
-| **RBAC** | Role-Based Access Control (database permissions) |
-| **CORS** | Cross-Origin Resource Sharing (API security) |
-| **CSRF** | Cross-Site Request Forgery (security attack) |
-| **XSS** | Cross-Site Scripting (security attack) |
-| **DDoS** | Distributed Denial of Service (attack type) |
-| **TTI** | Time to Interactive (performance metric) |
-| **LCP** | Largest Contentful Paint (performance metric) |
-| **CLS** | Cumulative Layout Shift (performance metric) |
+| **SSR**  | Server-Side Rendering (Next.js rendering strategy)               |
+| **SSG**  | Static Site Generation (Next.js pre-rendering)                   |
+| **ISR**  | Incremental Static Regeneration (Next.js hybrid rendering)       |
+| **ODM**  | Object-Document Mapper (Mongoose for MongoDB)                    |
+| **CDN**  | Content Delivery Network (Vercel Edge Network)                   |
+| **TLS**  | Transport Layer Security (encryption protocol)                   |
+| **RBAC** | Role-Based Access Control (database permissions)                 |
+| **CORS** | Cross-Origin Resource Sharing (API security)                     |
+| **CSRF** | Cross-Site Request Forgery (security attack)                     |
+| **XSS**  | Cross-Site Scripting (security attack)                           |
+| **DDoS** | Distributed Denial of Service (attack type)                      |
+| **TTI**  | Time to Interactive (performance metric)                         |
+| **LCP**  | Largest Contentful Paint (performance metric)                    |
+| **CLS**  | Cumulative Layout Shift (performance metric)                     |
 
 ---
 
@@ -1782,9 +1825,9 @@ console.log('[API] Request:', {
 
 ## Appendix C: Change Log
 
-| Version | Date | Author | Changes |
-|---------|------|--------|---------|
-| 1.0 | 2025-11-20 | Technical Team | Initial documentation with HMAC security implementation |
+| Version | Date       | Author         | Changes                                                 |
+| ------- | ---------- | -------------- | ------------------------------------------------------- |
+| 1.0     | 2025-11-20 | Technical Team | Initial documentation with HMAC security implementation |
 
 ---
 

@@ -1,8 +1,8 @@
 # Technical Documentation
+
 ## Thoothukudi District Electoral Roll Search Application
 
 **Technology Stack:** Next.js 15, MongoDB, TypeScript, Mono Repo
-
 
 ### Key Highlights
 
@@ -16,7 +16,6 @@
 
 ✅ **Bilingual Support**: Full Tamil and English language support for voter names and search
 
-
 ## System Architecture
 
 ### High-Level Architecture
@@ -24,10 +23,10 @@
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                    CLIENT LAYER                              │
-│  ┌────────────┐      
-│  │  Browser   │     
-│  │  Desktop   │           
-│  └────────────┘ 
+│  ┌────────────┐
+│  │  Browser   │
+│  │  Desktop   │
+│  └────────────┘
 └───────────────────────┬─────────────────────────────────────┘
                         │
                         │ HTTPS
@@ -136,7 +135,6 @@
 10. Data returned to client
 ```
 
-
 ## Security Implementation
 
 ### HMAC-Based API Authentication
@@ -202,13 +200,11 @@
 - Should be protected with rate limiting in production
 ```
 
-
 #### Protected API Routes
 
-| Route | Method | Protection | Purpose |
-|-------|--------|------------|---------|
-| `/api/polling-stations` | GET | ✅ HMAC | Fetch polling stations by constituency |
-| `/api/voters/search` | GET | ✅ HMAC | Search voters with filters |
-| `/api/auth/sign` | POST | ❌ None | Generate HMAC signatures (rate-limited) |
-| `/api/example/protected` | GET/POST | ✅ HMAC | Example/demo route |
-
+| Route                    | Method   | Protection | Purpose                                 |
+| ------------------------ | -------- | ---------- | --------------------------------------- |
+| `/api/polling-stations`  | GET      | ✅ HMAC    | Fetch polling stations by constituency  |
+| `/api/voters/search`     | GET      | ✅ HMAC    | Search voters with filters              |
+| `/api/auth/sign`         | POST     | ❌ None    | Generate HMAC signatures (rate-limited) |
+| `/api/example/protected` | GET/POST | ✅ HMAC    | Example/demo route                      |

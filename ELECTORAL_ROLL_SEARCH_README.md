@@ -1,6 +1,6 @@
 # Thoothukudi Electoral Roll Search Application
 
-A robust search application for the 2002 electoral roll dataset of Thoothukudi Assembly Constituency (AC 210). This application can handle over 266,000 records efficiently.
+A robust search application for the 2002 Electoral Roll dataset of Thoothukudi Assembly Constituency (AC 210). This application can handle over 266,000 records efficiently.
 
 ## Features
 
@@ -52,10 +52,10 @@ Edit `.env.local` and set your MongoDB connection string:
 
 ```env
 # For local MongoDB:
-MONGODB_URI=mongodb://localhost:27017/tuticorin-electoral-roll
+MONGODB_URI=mongodb://localhost:27017/tuticorin-Electoral Roll-roll
 
 # For MongoDB Atlas:
-MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/tuticorin-electoral-roll
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/tuticorin-Electoral Roll-roll
 ```
 
 ### 3. Start MongoDB
@@ -85,6 +85,7 @@ pnpm import
 ```
 
 The script will:
+
 - Connect to MongoDB
 - Read the Excel file
 - Parse all records
@@ -144,6 +145,7 @@ GET /api/voters/search
 ```
 
 **Query Parameters:**
+
 - `q` (required): Search query
 - `type` (optional): Search type - `name`, `house`, or `idcard` (default: `name`)
 - `partNo` (optional): Filter by part number
@@ -153,11 +155,13 @@ GET /api/voters/search
 - `limit` (optional): Results per page (default: 50)
 
 **Example:**
+
 ```
 GET /api/voters/search?q=ராஜா&type=name&page=1&limit=50
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -242,4 +246,3 @@ The following indexes are created for optimal performance:
 ## License
 
 Private project for Thoothukudi Government application.
-
