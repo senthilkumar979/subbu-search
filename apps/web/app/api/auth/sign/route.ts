@@ -19,7 +19,6 @@ export async function POST(request: NextRequest) {
   try {
     // Parse request body
     const { payload } = await request.json();
-    console.log('Received payload:', payload);
     if (!payload || typeof payload !== 'string') {
       return NextResponse.json(
         { error: 'Invalid payload format' },

@@ -97,7 +97,6 @@ export default function TransliterateInput({
     const processTranscript = async () => {
       // Process when we have a transcript and we're not listening anymore
       if (transcript && !listening) {
-        console.log('Processing transcript:', transcript);
 
         // Check if transcript is in English and needs transliteration
         const isEnglish = /^[a-zA-Z\s]+$/.test(transcript);
@@ -110,16 +109,13 @@ export default function TransliterateInput({
           for (const word of words) {
             if (word.trim()) {
               const tamilWord = await getTransliteration(word);
-              console.log(`Transliterated "${word}" to "${tamilWord}"`);
               currentValue = currentValue ? `${currentValue} ${tamilWord}` : tamilWord;
             }
           }
 
-          console.log('Final value:', currentValue);
           onChange(currentValue);
         } else {
           // Tamil text - replace existing value
-          console.log('Tamil text - replacing value:', transcript);
           onChange(transcript);
         }
 

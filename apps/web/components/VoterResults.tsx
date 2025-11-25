@@ -5,12 +5,12 @@ import { Card, CardContent } from "@workspace/ui/components/card";
 import {
   ChevronLeft,
   ChevronRight,
-  User,
-  IdCard,
-  Users,
-  Home,
   Hash,
+  Home,
+  IdCard,
+  User,
   UserCircle2,
+  Users,
 } from "lucide-react";
 import { useState } from "react";
 import { pollingStations } from "../lib/pollingStations";
@@ -59,7 +59,7 @@ const getRelationTypeName = (rlnType?: string): string => {
 // Helper function to get full gender name
 const getGenderName = (sex?: string): string => {
   if (!sex || sex === "" || sex === undefined) return "-";
-  if(sex !== "M" && sex !== "F" && sex !== "O") return "-";
+  if (sex !== "M" && sex !== "F" && sex !== "O") return "-";
   return GENDER_LABELS[sex.toUpperCase()] || sex;
 };
 
@@ -339,7 +339,7 @@ export default function VoterResults({
       <NeighborVotersModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
-        selectedVoter={selectedVoter}
+        selectedVoter={selectedVoter ?? ({} as Voter)}
         constituency={constituency}
       />
     </div>
