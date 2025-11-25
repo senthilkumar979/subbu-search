@@ -153,12 +153,12 @@ export default function VoterResults({
                       {getGenderName(voter.sex)}
                     </span>
                   </div>
-                  {voter.psName && (
-                    <div className="col-span-2">
-                      <span className="text-gray-500">Polling Station:</span>
-                      <span className="ml-1 text-xs">{voter.psName}</span>
-                    </div>
-                  )}
+                  <div className="col-span-2">
+                    <span className="text-gray-500">Polling Station:</span>
+                    <span className="ml-1 text-xs">
+                      {getPollingStationName(voter.partNo, voter.acNo) || "-"}
+                    </span>
+                  </div>
                 </div>
               </div>
             </CardContent>
