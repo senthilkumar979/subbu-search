@@ -56,6 +56,16 @@ function PageContent() {
   // Sync selectedTsc with URL parameter
   useEffect(() => {
     setSelectedTsc(tscFromUrl);
+    console.log("tscFromUrl", tscFromUrl);
+    setCurrentSearchParams(null);
+    setVoters([]);
+    setPagination({
+      total: 0,
+      page: 1,
+      limit: 200,
+      totalPages: 0,
+    });
+    setError(null);
   }, [tscFromUrl]);
 
   // Update page title and meta tags based on selected constituency
